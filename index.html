@@ -285,7 +285,6 @@
             <h1>Add Item</h1>
             <button onclick="removeForm()"><i class="fa-solid fa-x"></i></button>
         </div>
-
         <div class="category flex justify-between gap-8">
             <select name="select" id="select" class=" bg-orange-300	text-black text-xs	p-2.5">
                 <option value=""></option>
@@ -410,7 +409,40 @@
             .section {
                 margin-top: 170px;
             }
+            .addItems {
+                display: flex;
+                width: 400px;
+            }
+            .category {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
         }
+        @media only screen and (max-width: 480px) {
+            .sandwiches {
+                display: flex;
+                flex-direction: column;
+            }
+            .row {
+                height: 65px;
+                width: 250px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 10px;
+            }
+            .addItems {
+                display: flex;
+                width: 300px;
+            }
+            .category {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
     </style>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="script.js"></script>
