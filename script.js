@@ -12,9 +12,11 @@ function removeForm(){
 
 let drinksArray=[]
 let sandwichesArray=[]
+let generalArray=[]
 
 let drinks = document.getElementById('Drinks');
 let sandwiches = document.getElementById('Sandwiches')
+let general = document.getElementById('General')
 
 function addItem(){
     let category=document.getElementById('select');
@@ -23,6 +25,7 @@ function addItem(){
     
     let itemName = document.getElementById('name');
     let itemPrice = document.getElementById('price');
+
     let itemDetails = document.getElementById('textArea');
 
     let file = imageInput.files[0];
@@ -46,7 +49,12 @@ function addItem(){
                 sandwichesArray.push(newItem);
                 updateSandwichesHTML()
                 removeForm();
+            }else if(category.value === 'general'){
+                generalArray.push(newItem);
+                updateGeneralHTML()
+                removeForm();
             }
+
         }
     });
 
@@ -68,7 +76,9 @@ function validateInput(item) {
     }
 
     if (name && item.name === '') {
+        console.log('here')
         name.style.borderColor = 'red';
+        console.log('skipped')
         isValid = false;
     } else if (name) {
         name.style.borderColor = '';
@@ -97,6 +107,10 @@ function updateDrinksHTML(){
 
 function updateSandwichesHTML(){
     sandwiches.innerHTML=sandwichesArray.map(generateSingleItemHTML).join('');
+}
+
+function  updateGeneralHTML(){
+    general.innerHTML=generalArray.map(generateSingleItemHTML).join('');
 }
 
 function generateSingleItemHTML(item){
